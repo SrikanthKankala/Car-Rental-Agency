@@ -1,0 +1,33 @@
+/* styles.css */
+
+/* Styles for the container */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Styles for the registration form */
+#customerRegistrationForm {
+    margin-top: 20px;
+}
+
+/* Styles for form fields */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Styles for the error message */
+#passwordError {
+    margin-top: 5px;
+}
+
+/* Styles for the login link */
+#loginLink {
+    color: blue;
+}
+
+/* Hover effect for the login link */
+#loginLink:hover {
+    text-decoration: underline;
+}

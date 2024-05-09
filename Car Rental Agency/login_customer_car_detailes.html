@@ -1,0 +1,47 @@
+<!-- C:\Users\kanka\All-Frontend\Car Rental Agency\login_customer_car_detailes.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">  
+        <div id="carDetails">
+            <h2>Available Cars for Rent</h2>
+            <!-- Car details will be displayed here -->
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="login_customer_car_detailes_script.js"></script>
+    <script>
+    function openPage(pageName) {
+        var tabs = document.getElementsByClassName("tablink");
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].classList.remove("active");
+        }
+        document.getElementById("customer").style.display = "none";
+        document.getElementById("agency").style.display = "none";
+        document.getElementById(pageName).style.display = "block";
+        document.getElementById("carDetails").style.display = "none";
+        event.currentTarget.classList.add("active");
+        
+        // Redirect to the registration page
+        if (pageName === 'customer') {
+            window.location.href = 'customer_registration.html';
+        } else if (pageName === 'agency') {
+            window.location.href = 'agency_registration.html';
+        }
+    }
+    </script>
+    </body>
+    </html>
+    
+</body>
+</html>

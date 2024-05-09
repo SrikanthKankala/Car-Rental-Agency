@@ -1,0 +1,51 @@
+<!-- C:\Users\kanka\All-Frontend\Car Rental Agency\add_new_cars.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Cars</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Add New Cars</h2>
+    <form id="addCarForm" enctype="multipart/form-data" method="post" action="car_details_display.html">
+
+        <div class="form-group">
+            <label for="vehicleModel">Vehicle Model</label>
+            <input type="text" class="form-control" id="vehicleModel" name="vehicleModel" required>
+        </div>
+        <div class="form-group">
+            <label for="vehicleNumber">Vehicle Number</label>
+            <input type="text" class="form-control" id="vehicleNumber" name="vehicleNumber"required>
+        </div>
+        <div class="form-group">
+            <label for="seatingCapacity">Seating Capacity</label>
+            <input type="number" class="form-control" id="seatingCapacity"   name="seatingCapacity" min="1" required>
+        </div>
+        <div class="form-group">
+            <label for="rentPerDay">Rent Per Day</label>
+            <input type="number" class="form-control" id="rentPerDay" name="rentPerDay" min="0" required>
+        </div>
+
+        <button type="submit" onclick="submitCarForm()" class="btn btn-primary">Add Car</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Custom JS -->
+<script src="add_new_car_script.js"></script>
+
+
+
+</body>
+</html>

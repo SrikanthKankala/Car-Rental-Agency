@@ -1,0 +1,72 @@
+
+<!-- C:\Users\kanka\All-Frontend\Car Rental Agency\customer_login.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS */
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="loginLink" class="container" >
+    <h2>Customer Login</h2>
+    <form id="loginForm" onsubmit="return validateLogin()"action="#car_details_display.html">
+      <div class="form-group">
+        <label for="loginEmailPhone">Email or Phone Number</label>
+        <input type="text" class="form-control" id="loginEmailPhone" required>
+      </div>
+      <div class="form-group">
+        <label for="loginPassword">Password</label>
+        <input type="password" class="form-control" id="loginPassword" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    <p>Not registered? <a href="customer_registration.html">Register here</a></p>
+  </div>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+      function validateLogin() {
+          var email = document.getElementById("email").value;
+          var password = document.getElementById("password").value;
+          var registeredAgencies = JSON.parse(localStorage.getItem('registeredAgencies')) || [];
+
+          // Check if agency is registered
+          var found = registeredAgencies.some(function(agency) {
+              return agency.email === email && agency.password === password;
+          });
+
+          if (found) {
+              // Redirect to add_new_cars.html after successful login
+              window.location.href = "add_new_cars.html";
+              return false;
+          } else {
+              alert("Invalid email or password.");
+              return false;
+          }
+      }
+
+      function validateLogin() {
+      // You can add your validation logic here if needed
+      // For simplicity, just redirecting to car_details_display.html
+      window.location.href = 'login_customer_car_detailes.html';
+      return false; // Prevents the form from actually submitting
+    }
+  </script>
+
+</body>
+</html>

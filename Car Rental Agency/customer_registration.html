@@ -1,0 +1,63 @@
+<!-- 
+C:\Users\kanka\All-Frontend\Car Rental Agency\customer_registration.html -->
+
+
+<!-- customer_registration.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="customer_registration.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Customer Registration</h2>
+    <form id="customerRegistrationForm"action="customer_login.html"  method="POST" onsubmit="return validateCustomerRegistration()">
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" class="form-control" id="fullName" name="fullName" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" required>
+            <div id="passwordError" style="color: red;"></div>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+    <p>Already have an account? <a href="customer_login.html" id="loginLink">Login</a></p>
+</div>
+
+<script>
+    function validateCustomerRegistration() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (password != confirmPassword) {
+            document.getElementById("passwordError").innerText = "Passwords do not match!";
+            return false;
+        } else {
+            document.getElementById("passwordError").innerText = "";
+            return true;
+        }
+    }
+</script>
+
+</body>
+</html>

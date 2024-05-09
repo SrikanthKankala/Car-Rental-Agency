@@ -1,0 +1,80 @@
+<!-- C:\Users\kanka\All-Frontend\Car Rental Agency\agency_registration.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Car Rental Agency Registration</title>
+</head>
+<body>
+
+<div class="container">
+    <h2>Car Rental Agency Registration</h2>
+    <form id="agencyRegistrationForm" onsubmit="return validateAgencyRegistration()">
+        <!-- Agency Registration Form Fields -->
+        <!-- Include fields like agency name, full name, email, phone number, password, etc. -->
+        <!-- Example: -->
+        <div class="form-group">
+            <label for="agencyName">Agency Name</label>
+            <input type="text" class="form-control" id="agencyName" required>
+        </div>
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" class="form-control" id="fullName" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" required>
+            <div id="passwordError" style="color: red;"></div> <!-- Display password mismatch error -->
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+    <p>Already have an account? <a href="agency_login.html">Login</a></p>
+</div>
+
+<script src="script.js"></script>
+<script>
+    // Function to validate password and confirm password match
+    function validateAgencyRegistration() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (password !== confirmPassword) {
+            document.getElementById("passwordError").innerText = "Passwords do not match!";
+            return false;
+        } else {
+            document.getElementById("passwordError").innerText = "";
+
+            var agencyName = document.getElementById("agencyName").value;
+            var email = document.getElementById("email").value;
+            var fullName = document.getElementById("fullName").value;
+            var phone = document.getElementById("phone").value;
+
+            var registeredAgencies = JSON.parse(localStorage.getItem('registeredAgencies')) || [];
+            registeredAgencies.push({agencyName: agencyName, email: email, fullName: fullName, phone: phone, password: password});
+            localStorage.setItem('registeredAgencies', JSON.stringify(registeredAgencies));
+
+            alert("Registration successful. You can now login.");
+            // Redirect to login.html after successful registration
+            window.location.href = "agency_login.html";
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
